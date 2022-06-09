@@ -9,15 +9,13 @@ export default function App(props: {
 
   return (
     <div className="App">
-      {data.users?.data?.map(
+      {data.users?.map(
         (user) =>
           user && (
             <div key={user.id}>
               <h2>{user.name}</h2>
-              <p>
-                {user.username}: {user.email}
-              </p>
-              <p>posts written: {user.posts?.data?.length}</p>
+              <p>{user.username}</p>
+              <p>{user.email}</p>
             </div>
           ),
       )}

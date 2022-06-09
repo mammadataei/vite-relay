@@ -6,7 +6,7 @@ import {
   Store,
 } from 'relay-runtime'
 
-const API_URL = 'https://graphqlzero.almansi.me/api'
+const API_URL = '/api'
 
 async function fetchGraphQL(
   text?: string | null,

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e18b104ac9edefb589434c66aa25426f>>
+ * @generated SignedSource<<88f842fd3a448f8a832a9eb6b83b038c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,20 +11,12 @@
 import { ConcreteRequest, Query } from 'relay-runtime';
 export type AllUsersQuery$variables = {};
 export type AllUsersQuery$data = {
-  readonly users: {
-    readonly data: ReadonlyArray<{
-      readonly id: string | null;
-      readonly username: string | null;
-      readonly name: string | null;
-      readonly email: string | null;
-      readonly posts: {
-        readonly data: ReadonlyArray<{
-          readonly id: string | null;
-          readonly title: string | null;
-        } | null> | null;
-      } | null;
-    } | null> | null;
-  } | null;
+  readonly users: ReadonlyArray<{
+    readonly id: string;
+    readonly username: string | null;
+    readonly name: string | null;
+    readonly email: string | null;
+  } | null> | null;
 };
 export type AllUsersQuery = {
   variables: AllUsersQuery$variables;
@@ -32,83 +24,41 @@ export type AllUsersQuery = {
 };
 
 const node: ConcreteRequest = (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-},
-v1 = [
+var v0 = [
   {
     "alias": null,
     "args": null,
-    "concreteType": "UsersPage",
+    "concreteType": "User",
     "kind": "LinkedField",
     "name": "users",
-    "plural": false,
+    "plural": true,
     "selections": [
       {
         "alias": null,
         "args": null,
-        "concreteType": "User",
-        "kind": "LinkedField",
-        "name": "data",
-        "plural": true,
-        "selections": [
-          (v0/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "username",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "name",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "email",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "PostsPage",
-            "kind": "LinkedField",
-            "name": "posts",
-            "plural": false,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Post",
-                "kind": "LinkedField",
-                "name": "data",
-                "plural": true,
-                "selections": [
-                  (v0/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "title",
-                    "storageKey": null
-                  }
-                ],
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
-        ],
+        "kind": "ScalarField",
+        "name": "id",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "username",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "name",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "email",
         "storageKey": null
       }
     ],
@@ -121,7 +71,7 @@ return {
     "kind": "Fragment",
     "metadata": null,
     "name": "AllUsersQuery",
-    "selections": (v1/*: any*/),
+    "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -130,19 +80,19 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "AllUsersQuery",
-    "selections": (v1/*: any*/)
+    "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "945c56fe531e7b419786a56dd5ae2747",
+    "cacheID": "59ee204acb25200cafb60e02352eb24f",
     "id": null,
     "metadata": {},
     "name": "AllUsersQuery",
     "operationKind": "query",
-    "text": "query AllUsersQuery {\n  users {\n    data {\n      id\n      username\n      name\n      email\n      posts {\n        data {\n          id\n          title\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query AllUsersQuery {\n  users {\n    id\n    username\n    name\n    email\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "d94379c22e675f8411e3c142f8ce90a0";
+(node as any).hash = "91efcbb22bc40d326e01ec2b1820fafe";
 
 export default node;
