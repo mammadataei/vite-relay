@@ -1,6 +1,9 @@
 schema: src/schema.graphql
 generates:
-  ./src/resolvers-types.ts:
+  ./testing/resolvers-types.ts:
     plugins:
       - typescript
       - typescript-resolvers
+    config:
+      avoidOptionals:
+        field: true

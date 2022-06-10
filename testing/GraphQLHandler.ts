@@ -1,29 +1,30 @@
 import { Paper } from 'graphql-paper'
 import { GraphQLHandler } from 'graphql-mocks'
-import { Resolvers } from '../src/resolvers-types'
+import { Resolvers, User } from './resolvers-types'
+import { ResolverMap } from 'graphql-mocks/es/types'
+import { schema as graphqlSchema } from '../src/schema'
+import { userFactory } from './factories'
 
-const schema = ``
-const resolvers: Resolvers = {
+export const paper = new Paper(graphqlSchema)
+
+paper.mutate(({ create }) => {
+  create('User', userFactory())
+  create('User', userFactory())
+})
+
+const resolvers: Resolvers & ResolverMap = {
   Query: {
-    // ...
-  },
-  User: {
-    id: (user) => user.id,
-    username: (user) => user.username,
+    users: () => paper.data.User as any,
+    user: (_, args) =>
+      paper.data.User.find((user) => user.id === args.id) as any,
   },
 }
 
-const paper = new Paper(schema)
-
-paper.mutate(({ create }) => {
-  create('User', {})
-})
-
-const handler = new GraphQLHandler({
+export const handler = new GraphQLHandler({
   resolverMap: resolvers,
 
   dependencies: {
-    graphqlSchema: schema,
+    graphqlSchema,
     paper,
   },
 })

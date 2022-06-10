@@ -9,7 +9,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "cypress": "cypress open",
-    "generate": "graphql-codegen",
+    "generate": "pnpm relay && graphql-codegen && node scripts/schemaToString.js",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -22,6 +22,8 @@
     "@graphql-codegen/cli": "^2.6.2",
     "@graphql-codegen/typescript": "^2.4.11",
     "@graphql-codegen/typescript-resolvers": "^2.6.4",
+    "@ngneat/falso": "^5.7.0",
+    "@testing-library/cypress": "^8.0.3",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-relay": "^13.0.2",
